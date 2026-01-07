@@ -1,8 +1,11 @@
 # Distributed Task Queue
+
 ---
+
 It's been a while I wrote something systems oriented, so I have decided to build this project
 I will be building a close to production grade distributed Task Queue System
 Written purely by hand and research when necessary and minimal AI use just for the fun of it.
+
 ---
 
 ## Brief Description
@@ -20,6 +23,7 @@ This will be written purely in python using the following core packages:
 1. FastAPI for the framework to test
 2. Postgres for the database
 3. Pydantic Logfire for the logging
+4. py-test for testing
 
 ---
 
