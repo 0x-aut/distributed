@@ -50,7 +50,7 @@ class CustomJob(BaseModel):
   """
   This is where use creates a custom job of their choosing using the made template
   """
-  job_type: str # User will declare a job type
+  custom_job_type: str # User will declare a job type
   payload: Dict[str, Any]
   _created_at: datetime = PrivateAttr(default_factory=datetime.now)
 

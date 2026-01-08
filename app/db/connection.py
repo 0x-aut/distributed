@@ -10,11 +10,10 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_CONNECTION_STRING")
 
-user_connection: Optional[Connection] = None
-
 # Do we gotta use a class for global method use?
 
 def connectToDatabase() -> Connection:
+  user_connection: Optional[Connection] = None
   if not DATABASE_URL:
     raise ValueError("DATABASE URL is not found in environment, please add it to the environment")
   user_connection = psycopg.connect(DATABASE_URL)
