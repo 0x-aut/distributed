@@ -25,7 +25,7 @@ class RunAnalysisJob(BaseModel):
   analysis_data: Dict[str, Any]
   _started_analysis_at: datetime = PrivateAttr(default_factory=datetime.now)
   _analysis_end_time: datetime = PrivateAttr(default_factory=datetime.now)
-  _analysis_total_run_time:timedelta = PrivateAttr(default_factory= lambda: RunAnalysisJob._started_analysis_at - RunAnalysisJob._analysis_end_time) # Look at this function a little bit more just to be clear
+  _analysis_total_run_time: Optional[timedelta] = None # Look at this function a little bit more just to be clear
   
 
 class NotifyUserJob(BaseModel):
