@@ -20,8 +20,5 @@ def connectToDatabase() -> Connection:
   user_connection = psycopg.connect(DATABASE_URL)
   return user_connection
   
-def closeConnection():
-  if user_connection is not None:
-    user_connection.close()
-  else:
-    return 'User connection is already closed'
+# def closeConnection(connection: Connection):
+#   connection.close()

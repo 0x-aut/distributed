@@ -5,8 +5,10 @@ description = "A distributed task system for managing and coordinating tasks acr
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi[standard]>=0.128.0",
     "logfire>=4.16.0",
     "psycopg[binary,pool]>=3.3.2",
     "pydantic>=2.12.5",
+    "pytest>=9.0.2",
     "python-dotenv>=1.2.1",
 ]

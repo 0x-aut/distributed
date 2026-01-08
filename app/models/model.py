@@ -64,12 +64,13 @@ class Job(BaseModel):
   status: Literal["pending", "processing", "completed", "failed", "retry"]
   # Pending is different from processing as pending is for sending the data to the system
   priority: int = 0
-  retries: int = 0
+  attempts: int = 0
   max_retries: int = 3
   _created_at: datetime = PrivateAttr(default_factory=datetime.now)
   scheduled_at: Optional[datetime] = None
   updated_at: Optional[datetime] = None
   failed_reason: Optional[str] = None
   failed_at: Optional[datetime] = None
-  completed_at: Optional[datetime] = None 
+  completed_at: Optional[datetime] = None
+  result: Dict[str, Any]
   
