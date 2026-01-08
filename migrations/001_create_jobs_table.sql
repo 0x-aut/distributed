@@ -1,4 +1,4 @@
--- Generated on 2026-01-08 17:38:58
+-- Generated on 2026-01-08 17:47:16
 -- 001_create_jobs_table.sql
 -- DO NOT EDIT MANUALLY - Regenerate with generatesql.py
 

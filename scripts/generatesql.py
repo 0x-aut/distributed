@@ -84,12 +84,6 @@ def generateSchema() -> LiteralString:
   # print(lines)
   return "\n".join(lines)
  
-# def makeMigrations(migration_text: Optional[LiteralString] = None):
-#   connect = connectToDatabase()
-#   print(connect.info)
-  
-
-# makeMigrations()
 
 
 def createSQLFile():
