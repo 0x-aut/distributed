@@ -80,8 +80,7 @@ def generateSchema() -> LiteralString:
   for col_name, comment in COMMENTS.items():
     if col_name != "table":
       lines.append(f"COMMENT ON COLUMN {TABLE_NAME}.{col_name} IS '{comment}';")
-      
-  # print(lines)
+  
   return "\n".join(lines)
  
 
@@ -99,9 +98,3 @@ def createSQLFile():
     f.write(sql_content)
     
   print(f"Successfully generated migration file: {output_path}")
-  
-  
-  
-  # print("2. Apply it: psql -d your_db_name -f migrations/001_create_jobs_table.sql")
-  # print("3. Verify: \\d jobs  and  \\di  in psql")
-  

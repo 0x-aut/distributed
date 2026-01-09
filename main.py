@@ -1,7 +1,10 @@
 from app.db.connection import connectToDatabase
-from scripts.generatesql import generateSchema, createSQLFile
+from scripts.generatesql import createSQLFile
 from typing import LiteralString, cast
 import os
+# from fastapi import FastAPI
+
+# app = FastAPI()
 
 
 def makeSchema():
