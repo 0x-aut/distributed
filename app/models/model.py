@@ -9,6 +9,7 @@ from uuid import uuid4
 
 # Let us define classes for several job types including creating a custom job type
 class SendEmailJob(BaseModel):
+  job_type: Literal["send_email"] = "send_email"
   sender_email: str # This may be redundant but it will do
   recipient_email: str
   subject: str
@@ -16,19 +17,22 @@ class SendEmailJob(BaseModel):
   _started_sent_at: datetime = PrivateAttr(default_factory=datetime.now)
 
 class GenerateThumbnailJob(BaseModel):
+  job_type: Literal["generate_thumbnail"] = "generate_thumbnail"
   image_url: str
   _started_generation_at: datetime = PrivateAttr(default_factory=datetime.now)
 
 
 class RunAnalysisJob(BaseModel):
+  job_type: Literal["run_analysis"] = "run_analysis"
   analysis_type: Literal["addition", "subtraction", "multiplication", "division", "custom_analysis"] # custom_analysis will be developed to allow custom math functions perhaps
   analysis_data: Dict[str, Any]
   _started_analysis_at: datetime = PrivateAttr(default_factory=datetime.now)
   _analysis_end_time: datetime = PrivateAttr(default_factory=datetime.now)
   _analysis_total_run_time: Optional[timedelta] = None # Look at this function a little bit more just to be clear
-  
+
 
 class NotifyUserJob(BaseModel):
+  job_type: Literal["notify_user"] = "notify_user"
   user_to_notify: str
   notification_channel: Literal["mobile", "email", "web_toast"]
   # Email channel is meant to point or tie to sending emails via the email job
@@ -36,11 +40,13 @@ class NotifyUserJob(BaseModel):
   _started_notification_at: datetime = PrivateAttr(default_factory=datetime.now)
 
 class CleanOldDataJob(BaseModel):
+  job_type: Literal["clean_old_data"] = "clean_old_data"
   data_type: Literal["records", "list"] # Records for dictionaries and lists for normal data in a list of data
   data_payload: Dict[str, Any]|List
   _started_cleanup_at: datetime = PrivateAttr(default_factory=datetime.now)
 
 class BackUpDataJob(BaseModel):
+  job_type: Literal["backup_data"] = "backup_data"
   data_type: Literal["records", "list"]
   data_payload: Dict[str, Any]|Literal["", 1]
   _started_backup_at: datetime = PrivateAttr(default_factory=datetime.now)
@@ -50,6 +56,7 @@ class CustomJob(BaseModel):
   """
   This is where use creates a custom job of their choosing using the made template
   """
+  job_type: Literal["custom_jobs"] = "custom_jobs"
   custom_job_type: str # User will declare a job type
   payload: Dict[str, Any]
   _created_at: datetime = PrivateAttr(default_factory=datetime.now)
@@ -73,4 +80,3 @@ class Job(BaseModel):
   failed_at: Optional[datetime] = None
   completed_at: Optional[datetime] = None
   result: Dict[str, Any]
-  

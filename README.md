@@ -45,8 +45,8 @@ These tests will be carried out over a 100, 1.000 and 10.000 jobs.
 # TODOs
 
 - [x] Build script for building the schema and populating the database with said schema
-- [ ] Migrate the schema to the database and check if it works
-- [ ] Create the worker for the jobs
-- [ ] Use postgres SQL language to listen and manage the jobs
+- [x] Migrate the schema to the database and check if it works
+- [x] Create the worker for the jobs
+- [x] Use postgres SQL language to listen and manage the jobs
 - [ ] Create the logger function for the pydantic logger
  
